@@ -1,0 +1,27 @@
+{
+  "name": "Bottle-o-Messages",
+  "version": "1.0.0",
+  "authors": [
+    "Achraf Chouk <achrafchouk@gmail.com>"
+  ],
+  "description": "ReactJS and Socket.IO chat application",
+  "main": "app.js",
+  "keywords": [
+    "chat",
+    "reactjs",
+    "socket",
+    "message"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/crewstyle/bottle-o-messages",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.3"
+  }
+}
