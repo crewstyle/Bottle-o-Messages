@@ -14,7 +14,7 @@ _ReactJS and Socket.IO chat application_
 
 ## 1) What is this all about?
 
-[Bottle o' Messages](https://github.com/crewstyle/Bottle-o-Messages) is an application created with [ReactJS](https://github.com/facebook/react) and [Socket.IO](https://github.com/socketio/socket.io).  
+[Bottle o' Messages](https://github.com/crewstyle/bottle-o-messages) is an application created with [ReactJS](https://github.com/facebook/react) and [Socket.IO](https://github.com/socketio/socket.io).  
 
 
 ## 2) Install
@@ -54,7 +54,7 @@ Now let's have fun :)
 + http://twitter.com/crewstyle
 + http://github.com/crewstyle
 
-Please, read [LICENSE](https://github.com/crewstyle/Bottle-o-Messages/blob/master/LICENSE "LICENSE") for more details.
+Please, read [LICENSE](https://github.com/crewstyle/bottle-o-messages/blob/master/LICENSE "LICENSE") for more details.
 
 Copyright 20xx [Achraf Chouk](http://github.com/crewstyle "Achraf Chouk").  
 Brewed by Achraf Chouk, served by [Take a tea](http://www.takeatea.com "Take a tea") ;)
