@@ -1,0 +1,28 @@
+{
+  "name": "bottle-o-messages",
+  "version": "1.0.0",
+  "description": "ReactJS and Socket.IO chat application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crewstyle/bottle-o-messages"
+  },
+  "keywords": [
+    "chat",
+    "reactjs",
+    "socket",
+    "message"
+  ],
+  "author": "Achraf Chouk <achrafchouk@gmail.com>",
+  "license": "http://opensource.org/licenses/MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "grunt": "~0.4.5",
+    "node-jsx": "^0.13.3",
+    "react": "^0.13.3",
+    "socket.io": "^1.3.6"
+  }
+}

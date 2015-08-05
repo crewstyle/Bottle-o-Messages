@@ -1,0 +1,118 @@
+/*!
+ * main.css v1.0.0 - "Sogeking no shima deeeeeee - One Piece"
+ * Copyright 2015 Achraf Chouk <achrafchouk@gmail.com>
+ */
+
+/*body {
+    background-color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+    padding: 30px;
+}
+
+a {
+    color: #4183c4;
+    text-decoration: none;
+}
+a:focus, a:hover {
+    text-decoration: underline;
+}
+
+code {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: Consolas, Courier, monospace;
+    font-size: 12px;
+    margin: 0 2px;
+    padding: 0px 5px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    margin: 0 0 15px;
+    padding: 0;
+}
+
+h1 {
+    border-bottom: 1px solid #ddd;
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    padding: 0;
+}
+
+h2 {
+    border-bottom: 1px solid #eee;
+    font-size: 34px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+p, ul {
+    margin: 15px 0;
+}
+
+ul {
+    padding-left: 30px;
+}*/
+
+body {
+    font-family: Tahoma, sans-serif;
+}
+
+h1 {
+    background-color: #35323c;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+    margin: 0 0 5px;
+    padding: 10px 15px;
+}
+
+.message-form input {
+    border: 1px solid #39caad;
+    display: block;
+    margin: 0 0 5px;
+    padding: 10px 5px;
+    width: 388px;
+}
+.message-form button {
+    background-color: #39caad;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 16px;
+    text-align: center;
+    width: 400px;
+}
+
+.message-box {
+    margin:10px auto;
+    padding: 10px;
+    width: 400px;
+}
+
+.message-item {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+    width: 100%;
+}
+.message-item h2 {
+    font-size: 16px;
+    font-weight: 400;
+}
+.message-item p {
+    font-size: 12px;
+    margin: 5px 10px 5px 0;
+}
