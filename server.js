@@ -49,18 +49,56 @@ var getRandom = function (){
     return Math.round((Math.random() * 1000000));
 };
 
-var users = {
-        "AchUno": getRandom(),
-        "AchDos": getRandom(),
-        "AchTres": getRandom(),
-        "AchCuatro": getRandom(),
-        "AchCinco": getRandom(),
-        "AchSeis": getRandom()
-    },
-    currentId = Math.floor(Math.random() * 6);
+var users = [
+        {
+            "name": "AchUno",
+            "used": 0,
+            "id": getRandom(),
+        },
+        {
+            "name": "AchDos",
+            "used": 0,
+            "id": getRandom(),
+        },
+        {
+            "name": "AchTres",
+            "used": 0,
+            "id": getRandom(),
+        },
+        {
+            "name": "AchCuatro",
+            "used": 0,
+            "id": getRandom(),
+        },
+        {
+            "name": "AchCinco",
+            "used": 0,
+            "id": getRandom(),
+        },
+        {
+            "name": "AchSeis",
+            "used": 0,
+            "id": getRandom(),
+        },
+    ],
+    currentId = 0;
 
-var getMessage = function (msg){
-        if ('development' == app.get('env')) {
+var getCurrentUser = function (){
+        if (!currentId) {
+            currentId = Math.floor(Math.random() * 6);
+            users[currentId].used = 1;
+        }
+
+        for (i in users) {
+            if (1 == users[i].used) {
+                return i;
+            }
+        }
+
+        return 0;
+    },
+    getMessage = function (msg){
+        if ('development' === app.get('env')) {
             console.log(msg);
         }
     },
@@ -74,14 +112,14 @@ var getMessage = function (msg){
         return false;
     },
     renderIndex = function (res){
-        res.render('index', {title:'ReactJS and Socket.IO chat application', users:users, current:currentId});
+        var current = getCurrentUser();
+        res.render('index', {title:'ReactJS and Socket.IO chat application', users:users, current:current});
     };
 
 
 // ~~~~~ routes
 
 app.get('/', function (req, res){
-    //res.sendFile(__dirname + '/index.html');
     renderIndex(res);
 });
 
@@ -106,7 +144,7 @@ app.get('/room/:userid', function (req, res){
             renderIndex(res);
         }
         else {
-            res.render('room', {title: 'Chat with ' + username, userid: userid});
+            res.render('room', {title:'In a bottle with '+username, userid:userid});
         }
     }
 });

@@ -1,0 +1,84 @@
+/*!
+ * 03.sidebar.less v1.0.0 - "Sogeking no shima deeeeeee - One Piece"
+ * Copyright 2015 Achraf Chouk <achrafchouk@gmail.com>
+ */
+
+aside.s-sidebar {
+    float: left;
+    margin: 0;
+    padding: 0 20px 20px 20px;
+    position: absolute;
+    width: 200px;
+
+    h2 {
+        color: @gray;
+        font-style: italic;
+        margin: 30px 0 0;
+    }
+
+    .me {
+        color: @black;
+        display: block;
+        font-weight: 700;
+        line-height: 20px;
+        outline: 0px;
+        padding: 10px 5px 5px 10px;
+        position: relative;
+        text-decoration: none;
+
+        &:after {
+            background-color: @green;
+            border-radius: 10px;
+            content: "";
+            display: block;
+            height: 10px;
+            margin-top: -5px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            width: 10px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            a {
+                border-bottom: 1px solid @graylight;
+                box-shadow: 0 2px 1px -1px @white;
+                color: @graymetal;
+                display: block;
+                line-height: 20px;
+                outline: 0px;
+                padding: 10px 5px 5px 10px;
+                position: relative;
+                text-decoration: none;
+
+                &:hover {
+                    color: @black;
+                    font-weight: 700;
+                }
+
+                &:after {
+                    background-color: @graylight;
+                    border-radius: 10px;
+                    content: "";
+                    display: block;
+                    height: 10px;
+                    margin-top: -5px;
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    width: 10px;
+                }
+            }
+
+            &.active a:after {
+                background-color: @green;
+            }
+        }
+    }
+}

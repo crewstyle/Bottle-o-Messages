@@ -1,4 +1,41 @@
+/*!
+ * ach.js v1.0.0 - "Sogeking no shima deeeeeee - One Piece"
+ * Copyright 2015 Achraf Chouk <achrafchouk@gmail.com>
+ */
+var _support = 'desktop';                                                       //default support
+
+
+//_support
+if (navigator.userAgent.match(/(android|iphone|ipad|blackberry|symbian|symbianos|symbos|netfront|model-orange|javaplatform|iemobile|windows phone|samsung|htc|opera mobile|opera mobi|opera mini|presto|huawei|blazer|bolt|doris|fennec|gobrowser|iris|maemo browser|mib|cldc|minimo|semc-browser|skyfire|teashark|teleca|uzard|uzardweb|meego|nokia|bb10|playbook)/gi)) {
+    var width = window.innerWidth,                                              //window width
+        height = window.innerHeight;                                            //window height
+
+    //check support
+    if (((width >= 480) && (height >= 800)) ||
+        ((width >= 800) && (height >= 480)) ||
+        navigator.userAgent.match(/iPad/i)
+    ) {
+        _support = 'tablet';
+    } else {
+        _support = 'mobile';
+    }
+}
+
+
+
+//scope
 (function($){
+    //_blank
+    $('.openit').on('click', function (e){
+        e.preventDefault();
+        var _href = $(this).attr('href');
+
+        //track and open it
+        tracklink(_href);
+        window.open(_href);
+    });
+
+    //send message form
     var $form = $('#send');
 
     if (!$form.length) {

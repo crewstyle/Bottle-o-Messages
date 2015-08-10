@@ -1,24 +1,38 @@
 doctype html
 html(lang="fr")
-  head
-    block title
-      title ~ Bottle o' Messages ~
-    meta(charset='utf8')
-    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,700', rel='stylesheet', type='text/css')
-    style
-      include _main.css
-  body
-    header.h-content
-      block header
-        h1.homebannertext
-          a(href='#', id='logo') #{title}
+    head
+      block title
+          title ~ Bottle o' Messages ~
+      meta(charset='utf8')
+      link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,700', rel='stylesheet', type='text/css')
+      link(href='/css/bottle.css', rel='stylesheet', type='text/css')
 
-    section.c-content
-      block body
+    body
+        header.h-content
+            block header
+                h1 #{locals.title} ~ Bottle o' Messages
 
-    footer.f-content
-      p Bottle o' Message, proudly brewed by Achraf Chouk and served by Take a tea ;)
-      script(src='//cdn.socket.io/socket.io-1.2.0.js')
-      script(src='//code.jquery.com/jquery-1.11.1.js')
-      script
-        include _main.js
+        aside.s-sidebar
+            h2 Your profile
+            span.me #{locals.users[locals.current].name}
+
+            h2 Userlist
+            ul#users
+                each key,val in locals.users
+                    if locals.current != val
+                        li(class=key.used ? 'active' : '')
+                            a(href='/room/'+key.id) #{key.name}
+
+        section.c-content
+            block body
+
+        footer.f-content
+            ul#socials
+                li
+                    a(href='https://github.com/crewstyle/bottle-o-messages').openit
+                        i.fa.fa-github
+
+            p Bottle o' Message, proudly brewed by Achraf Chouk and served by Take a tea ;)
+
+        script(src='//cdn.socket.io/socket.io-1.2.0.js')
+        script(src='/js/bottle.js')
