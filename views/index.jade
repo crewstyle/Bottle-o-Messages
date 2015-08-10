@@ -1,0 +1,16 @@
+extends _base
+
+block title
+  title #{locals.title} ~ Bottle o' Messages
+
+block body
+  p.
+    And welcome in this chat.
+    Here is a list of users:
+  ul#users
+    li
+      b You: #{locals.users[locals.current]}
+
+    each key,val in locals.users
+      li
+        a(href='/room/'+key) #{val}

@@ -4,8 +4,8 @@
   "authors": [
     "Achraf Chouk <achrafchouk@gmail.com>"
   ],
-  "description": "ReactJS and Socket.IO chat application",
-  "main": "app.js",
+  "description": "ReactJS and Socket.IO chat application ~ Bottle o' Messages",
+  "main": "server.js",
   "keywords": [
     "chat",
     "reactjs",

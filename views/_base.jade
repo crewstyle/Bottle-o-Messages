@@ -1,0 +1,24 @@
+doctype html
+html(lang="fr")
+  head
+    block title
+      title ~ Bottle o' Messages ~
+    meta(charset='utf8')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,700', rel='stylesheet', type='text/css')
+    style
+      include _main.css
+  body
+    header.h-content
+      block header
+        h1.homebannertext
+          a(href='#', id='logo') #{title}
+
+    section.c-content
+      block body
+
+    footer.f-content
+      p Bottle o' Message, proudly brewed by Achraf Chouk and served by Take a tea ;)
+      script(src='//cdn.socket.io/socket.io-1.2.0.js')
+      script(src='//code.jquery.com/jquery-1.11.1.js')
+      script
+        include _main.js
