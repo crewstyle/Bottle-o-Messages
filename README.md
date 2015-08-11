@@ -19,24 +19,25 @@ _ReactJS and Socket.IO chat application_
 
 ## 2) Install
 
-If you use [Bower.io](http://bower.io), you can download *Bottle o' Messages* and use it with:
+If you want to install the package in your project and you use [Bower.io](http://bower.io), you can download *Bottle o' Messages* and use it with:
 
 ````
 bower install --save bottle-o-messages
 ````
 
-
-## 3) How to use it
-
-It's pretty simple to use the *Bottle o' Messages* application. It's a two-steps install.  
-In your HTML:
+If you want to install the package as a new project, just `git clone` this repository and follow the instructions:
 
 ````
 npm install -g grunt
-npm install -g bower
 npm install
+npm install bower
+bower install
 ````
 
+
+## 3) How to use it
+
+It's pretty simple to use the *Bottle o' Messages* application.  
 Create assets:
 ````
 grunt
@@ -45,6 +46,11 @@ grunt
 Launch project:
 ````
 node server.js
+````
+
+Explore it:
+````
+http://localhost:3000/
 ````
 
 
