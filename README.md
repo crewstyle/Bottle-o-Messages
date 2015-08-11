@@ -31,13 +31,20 @@ bower install --save bottle-o-messages
 It's pretty simple to use the *Bottle o' Messages* application. It's a two-steps install.  
 In your HTML:
 
-````html
--
+````
+npm install -g grunt
+npm install -g bower
+npm install
 ````
 
-In your Javascript:
-````javascript
--
+Create assets:
+````
+grunt
+````
+
+Launch project:
+````
+node server.js
 ````
 
 
