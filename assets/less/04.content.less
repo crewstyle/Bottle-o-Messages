@@ -8,11 +8,11 @@ section.c-content {
     border-bottom: 1px solid @graylight;
     border-left: 1px solid @graylight;
     border-radius: 0 0 0 5px;
-    box-shadow: -3px 3px 3px -2px #f1f1f3;
+    box-shadow: -3px 3px 3px -2px @graylight;
     margin-left: 200px;
     min-height: 500px;
     overflow: hidden;
-    padding: 25px 50px 50px;
+    padding: 25px 50px 60px;
     position: relative;
     -webkit-transition: margin-left .3s ease;
     -moz-transition: margin-left .3s ease;
@@ -25,6 +25,10 @@ section.c-content {
         font-size: 24px;
         line-height: inherit;
         margin: 0 0 60px;
+
+        &.room {
+            margin-bottom: 10px;
+        }
     }
 
     .c-choose {

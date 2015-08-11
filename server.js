@@ -104,8 +104,8 @@ var getCurrentUser = function (){
     },
     getUserName = function (userid){
         for (i in users) {
-            if (userid == users[i]) {
-                return i;
+            if (userid == users[i].id) {
+                return users[i].name;
             }
         }
 
@@ -144,7 +144,8 @@ app.get('/room/:userid', function (req, res){
             renderIndex(res);
         }
         else {
-            res.render('room', {title:'In a bottle with '+username, userid:userid});
+            var current = getCurrentUser();
+            res.render('room', {title:'In a bottle with '+username, users:users, current:current, userid:userid});
         }
     }
 });
@@ -178,11 +179,11 @@ io.on('connection', function (client){
     getMessage('server: user connection');
 
     // track user connection
-    client.on('user:connection', function (roomid){
-        getMessage('client: user connection into the room #' + roomid);
+    client.on('user:connection', function (userid){
+        getMessage('client: user connection into the room #' + userid);
 
         // no room to display
-        if (!roomid) {
+        if (!userid) {
             io.emit('user:wrongroom');
         }
         else {
@@ -200,23 +201,23 @@ io.on('connection', function (client){
     });
 
     // track writing message
-    client.on('message:write', function (status, userId){
-        getMessage('client: user ' + userId + ' ' + ('on' == status ? 'is' : 'stops') + ' writing');
-        io.emit('message:write', status, userId);
+    client.on('message:writing', function (status, userid){
+        getMessage('client: user ' + getUserName(userid) + ' ' + ('on' == status ? 'is' : 'stops') + ' writing');
+        io.emit('message:writing', status, userid);
     });
 
     // track sending message
-    client.on('message:send', function (msg, userId){
-        getMessage('client: user ' + userId + ' following message is sent › ' + msg);
-        io.emit('message:send', msg, userId);
+    client.on('message:send', function (msg, userid){
+        getMessage('client: user ' + getUserName(userid) + ' sent the following message › ' + msg);
+        io.emit('message:send', msg, userid);
     });
 
     // track user disconnection
-    client.on('disconnect', function (user, room){
-        getMessage('client: user disconnection');
+    client.on('disconnect', function (userid){
+        getMessage('client: user ' + getUserName(userid) + ' left the room!');
 
         // send event to client
-        io.emit('user:left', user, room);
+        io.emit('user:left', userid);
     });
 });
 

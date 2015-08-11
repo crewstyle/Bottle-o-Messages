@@ -17,6 +17,8 @@ module.exports = function (grunt){
         ach: {
             configs: {
                 /* COLORS */
+                blue: '#4387bf',
+                bluedark: '#3883c0',
                 green: '#55bb3a',
                 greendark: '#047f40',
                 //normal

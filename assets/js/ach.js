@@ -28,11 +28,7 @@ if (navigator.userAgent.match(/(android|iphone|ipad|blackberry|symbian|symbianos
     //_blank
     $('.openit').on('click', function (e){
         e.preventDefault();
-        var _href = $(this).attr('href');
-
-        //track and open it
-        tracklink(_href);
-        window.open(_href);
+        window.open($(this).attr('href'));
     });
 
     //send message form
@@ -45,61 +41,42 @@ if (navigator.userAgent.match(/(android|iphone|ipad|blackberry|symbian|symbianos
     var socket = io.connect('http://localhost:3000'),
         $input = $form.find('#m'),
         $room = $form.find('#r'),
+        $current = $form.find('#c'),
         $list = $('#messages'),
-        $status = $('#status'),
-        $user = $('#user');
+        $status = $('#status');
 
-    var user = {};
+    var _roomid = $room.val(),
+        _currentid = $current.val();
 
     // browser connection
     socket.on('connect', function (){
-        socket.emit('user:connection');
+        socket.emit('user:connection', _roomid);
+    });
+
+    // user 1 is not in the right room
+    socket.on('user:wrongroom', function (){
+        // do nothing for now.
     });
 
     // user 1 connection to the room
-    socket.on('user:connection', function (room){
-        user.room = room;
-
-        // check user 1's details
-        if (!user.name) {
-            $user.addClass('active');
-
-            // update form user 1
-            $user.on('submit', function (e){
-                e.preventDefault();
-
-                // get user name
-                var _username = $('#u').val();
-                user.name = _username;
-
-                // send data to the server
-                socket.emit('user:update', user);
-            });
-        }
-    });
-
-    // user 1 connection to the room
-    socket.on('user:connected', function (user){
-        user = user;
-
-        // update display
-        $user.removeClass('active');
+    socket.on('user:connection', function (){
+        // do nothing for now.
     });
 
     // user 1 is writing
     $input.on('keydown', function (e){
-        socket.emit('message:write', 'on', user.id);
+        socket.emit('message:writing', 'on', _currentid);
     });
 
     // user 1 stops writing
     $input.on('blur', function (e){
-        socket.emit('message:write', 'off', user.id);
+        socket.emit('message:writing', 'off', _currentid);
     });
 
     // user 2 is (not) writing
-    socket.on('message:write', function (status, userId){
+    socket.on('message:writing', function (status, userid){
         // check user's ID
-        if (userId == user.id) {
+        if (userid == _currentid) {
             return;
         }
 
@@ -117,13 +94,13 @@ if (navigator.userAgent.match(/(android|iphone|ipad|blackberry|symbian|symbianos
         $input.val('');
 
         // send data to the server
-        socket.emit('message:send', _msg);
+        socket.emit('message:send', _msg, _currentid);
     });
 
     // user 2 sent message
-    socket.on('message:send', function (msg, userId){
+    socket.on('message:send', function (msg, userid){
         // check user's ID
-        var _class = userId == user.id ? 'me' : 'notme';
+        var _class = userid == _currentid ? 'me' : 'notme';
 
         // create message
         var $li = $(document.createElement('li'))
@@ -132,5 +109,15 @@ if (navigator.userAgent.match(/(android|iphone|ipad|blackberry|symbian|symbianos
 
         // update messages list
         $list.append($li);
+    });
+
+    // browser disconnection
+    socket.on('disconnect', function (){
+        socket.emit('user:disconnection', _roomid);
+    });
+
+    // user 1 connection to the room
+    socket.on('user:left', function (userid){
+        // do nothing for now.
     });
 })(jQuery);

@@ -4,10 +4,13 @@ block title
   title #{locals.title} ~ Bottle o' Messages
 
 block body
+  h2.room Your messages.
   ul#messages
+
   span#status
 
   form#send(action='')
     input(type='hidden', id='r', name='roomid', value=locals.userid)
+    input(type='hidden', id='c', name='currentid', value=locals.users[locals.current].id)
     input(type='text', id='m', autocomplete='off', placeholder='Your message')
     button Send
