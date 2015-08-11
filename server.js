@@ -3,7 +3,7 @@
  * ~~~~~~~~~~~~~~~~~~
  *
  * Run it in command line:
- * node app.js
+ * node server.js
  *
  * ~~~~~~~~~~~~~~~~~~
  * Copyright 2015 Achraf Chouk <achrafchouk@gmail.com>
